@@ -13,7 +13,7 @@ Ver la sección [preparar repositorio](https://github.com/I110IS/lab1/blob/maste
 1. Permitirle a un monstruo exportar uno de sus tweets.
     1. Debe agregarse un botón en la vista de `tweets#show` que lleve al monstruo a exportar su tweet a PDF.
 1. Permitirle a un monstruo cargar una foto para su perfil.
-    1. Copiar la funcionalidad de crear/editar monstruos del laboratorio 4.
+    1. Copiar la funcionalidad de crear/editar monstruos del laboratorio de formularios.
     1. Actualizar el crear/editar monstruo para permitir cargar una foto.
 1. Mostrar la foto cargada en el paso anterior al lado izquierdo del tweet, para cada tweet.
     1. Si el monstruo no tiene foto cargada, continuar mostrando el doodle que se muestra actualmente.
