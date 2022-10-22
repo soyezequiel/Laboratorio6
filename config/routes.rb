@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :monsters, only: [:index]
-
-  root "monsters#index"
+  resources :monsters
+  resources :tweets
+  root "tweets#index"
 end

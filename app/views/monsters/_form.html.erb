@@ -1,0 +1,8 @@
+<%= form_with model: @monsterD do |fa| %>
+<%= fa.search_field  :name, placeholder: "nombre", size:"30x1" %> <br>
+<%= fa.text_area :description, placeholder: "Descripcion" %><br>
+<%= fa.telephone_field :phone, placeholder: "telefono"%><br>
+<%= fa.datetime_local_field  :birthdate, placeholder: "fecha de nacimiento"%><br>
+<%= fa.file_field :image, multiple: false%><br>
+<%= fa.submit "Guardar cambios" %>
+<%end%>

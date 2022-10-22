@@ -1,34 +1,30 @@
 <div class="row border-top py-3 px-3">
   <div class="col-sm-2 gx-0 text-end">
     <%# https://xsgames.co/randomusers/ %>
-    <% if (tweet.monster.image.count>0) %>
-    <%= image_tag tweet.monster.image.last, class: "img-thumbnail rounded-circle", style: "max-width: 48px" %>
-    <% else %>
     <%= image_tag "https://xsgames.co/randomusers/avatar.php?g=pixel&id=#{SecureRandom.uuid}", class: "img-thumbnail rounded-circle", style: "max-width: 48px" %>
-    <%end%>
   </div>
 
   <div class="col-sm-10">
     <p class="mb-0">
-      <%= link_to tweet.monster, class: "text-dark text-decoration-none" do %>
+      <%= link_to monster, class: "text-dark text-decoration-none" do %>
         <span class="fw-bold">
-          <%= tweet.monster.name %>
+          <%= monster.name %>
         </span>
 
         <span class="text-secondary">
           <%# This is to simulate a twitter handle %>
-          @<%= tweet.monster.name.underscore %>
+          @<%= monster.name.underscore %>
         </span>
       <% end %>
       ·
       <span class="text-secondary">
         <%# https://guides.rubyonrails.org/action_view_helpers.html#time-ago-in-words %>
-        <%= time_ago_in_words(tweet.created_at) %>
+
       </span>
     </p>
 
-    <%= link_to tweet, class: "text-dark text-decoration-none" do %>
-      <p class="mb-0"><%= tweet.content %></p>
+    <%= link_to monster, class: "text-dark text-decoration-none" do %>
+      <p class="mb-0"><%= monster.description %></p>
     <% end %>
   </div>
 </div>
