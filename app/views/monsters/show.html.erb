@@ -1,1 +1,11 @@
-<%# Update me %><%= @monster.inspect %>
+<%= link_to @monster.name, @monster, class: "btn btn rounded-pill mb-2 text-start ps-4" %></h1> <br>
+<%= render @monster%>
+<%image=@monster.image %>
+
+<% @monster.tweets.each  do |tw|%>
+<%= render tw %><br>
+
+<%@monster.image.each do |image|  %>
+  <%= image_tag image, class: "img-thumbnail" %>
+<%end%>
+<%end%>

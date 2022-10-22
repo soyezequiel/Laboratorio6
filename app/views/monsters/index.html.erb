@@ -1,1 +1,4 @@
-<%# Update me %><%= @monsters.inspect %>
+
+<% @monsters.each do |mon| %>
+   <%= render mon%>
+<%end%>
