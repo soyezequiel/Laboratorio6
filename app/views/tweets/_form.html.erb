@@ -1,6 +1,12 @@
+
 <%= form_with model: tweet do |f| %>
   <%= f.collection_select :monster_id, Monster.order(:name), :id, :name, {}, { class: "form-select mb-2" } %>
   <%= f.text_area :content, placeholder: "¿Qué está pasando?", class: "form-control mb-2" %>
-
+  <%= f.hidden_field :location_point %>
   <%= f.submit "Twittear", class: "btn btn-primary mb-2" %>
 <% end %>
+<script>
+    navigator.geolocation.getCurrentPosition((pos) => {
+      document.querySelector("#tweet_location_point").value = `${pos.coords.latitude},${pos.coords.longitude}`;
+    })
+</script>

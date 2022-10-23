@@ -8,6 +8,17 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
+//codigo nesesario para que muestre el mapa
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js"></script>
+    <script>
+      mapboxgl.accessToken = "<%= Rails.application.credentials.l[:box] %>";
+    </script>
+    <script src="https://unpkg.com/mapkick@0.1.1/dist/mapkick.js"></script>
+//fin de codigo nesesario para que muestre el mapa
+
+
   </head>
 
   <body>

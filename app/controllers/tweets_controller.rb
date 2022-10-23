@@ -18,6 +18,6 @@ def create
   end
 end
 def tweet_params
-  params.require(:tweet).permit(:content, :monster_id)
+  params.require(:tweet).permit(:content, :monster_id, :location_point)
 end
 end

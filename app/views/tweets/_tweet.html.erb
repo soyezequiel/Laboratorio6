@@ -6,7 +6,9 @@
     <% else %>
     <%= image_tag "https://xsgames.co/randomusers/avatar.php?g=pixel&id=#{SecureRandom.uuid}", class: "img-thumbnail rounded-circle", style: "max-width: 48px" %>
     <%end%>
-  </div>
+    </div>
+
+
 
   <div class="col-sm-10">
     <p class="mb-0">
@@ -31,4 +33,6 @@
       <p class="mb-0"><%= tweet.content %></p>
     <% end %>
   </div>
+
+
 </div>
