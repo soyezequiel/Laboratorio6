@@ -9,19 +9,28 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
-//codigo nesesario para que muestre el mapa
+<!--codigo nesesario para que muestre el mapa --!>
     <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css" rel="stylesheet" />
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js"></script>
     <script>
       mapboxgl.accessToken = "<%= Rails.application.credentials.l[:box] %>";
     </script>
     <script src="https://unpkg.com/mapkick@0.1.1/dist/mapkick.js"></script>
-//fin de codigo nesesario para que muestre el mapa
+<!-- fin de codigo nesesario para que muestre el mapa --!>
 
 
   </head>
 
   <body>
+<!-- Este codigo muestra la ubicacion actual del mostruo --!>
+    <% if session[:lat] && session[:lng] %>
+      <p>Tu ubicacion: </p>
+      <p> <%= session[:lat]%>, <%= session[:lng]%></p>
+    <%end%>
+
+
+<!-- Fin de (Este codigo muestra la ubicacion actual del mostruo) --!>
+
     <div class="container">
       <div class="row">
         <div class="col-sm-3">
@@ -33,5 +42,24 @@
         <div class="col-sm-4"></div>
       </div>
     </div>
+
+<!-- este codigo hace que el navegador envie la ubicacion cuando un monstruo abra la aplicacion --!>
+<%= form_with url: locations_path, html: { id: "location-form"} do |f| %>
+<%= f.hidden_field :lat %>
+<%= f.hidden_field :lng %>
+<%end%>
+
+<script>
+  navigator.geolocation.getCurrentPosition((pos) =>{
+    document.querySelector("#lat").value = pos.coords.latitude;
+    document.querySelector("#lng").value = pos.coords.longitude;
+    document.querySelector("#location-form").requestSubmit();
+  })
+
+</script>
+
+
+
+
   </body>
 </html>
