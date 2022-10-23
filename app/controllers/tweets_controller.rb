@@ -26,9 +26,12 @@ path=path.join(",")
   if latitud.nil?     #Como la primera vez al abrir una aplicacion la ubicacion esta en nil, se dejara cargar los tweet ordenados por fecha de creacion
     @tweets = Tweet.order(:created_at)
   else
-    @tweets=Tweet.where(
-      "location_point <@ polygon(path '#{path}')"
-    )
+    @tweets=Tweet.all
+    if (params[:lp])
+        @tweets=@tweets.where(
+          "location_point <@ polygon(path '#{path}')"
+        )
+    end
     @tweets = @tweets.order(  #Cuando en el controlador de la localizacion, detecta que la latitud esta en nil, ejecuta un codigo que la vuelve a renderizar, esta vez con la latitud cargada
       Arel.sql(
        "point(#{session[:lat]}, #{session[:lng]}) <-> location_point"
